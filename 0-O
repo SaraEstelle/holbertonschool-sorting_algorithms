@@ -1,3 +1,3 @@
-O(n)      <- meilleur cas. quand le tableau est déjà trié.
-O(n^2)    <- cas moyen.  Bubble sort compare chaque paire plusieurs fois
-O(n^2)    <- pire cas. quand le tableau est trié à l’envers.
+O(n)
+O(n^2)
+O(n^2)
