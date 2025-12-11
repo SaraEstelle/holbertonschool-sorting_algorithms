@@ -1,59 +1,46 @@
-<p align="center">
-  <img width="400px" height="400px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/C_Programming_Language.svg/695px-C_Programming_Language.svg.png" alt="Project logo">
-</p>
+# Sorting Algorithms & Big O
 
-<h3 align="center">Holbertonschool Sorting Algorithms & Big O</h3>
+## Introduction
 
-<div align="center">
+Ce projet explore les **algorithmes de tri** et la **notation Big O**, deux concepts fondamentaux en informatique. Les algorithmes de tri permettent d'organiser des données de manière ordonnée, ce qui est essentiel pour optimiser les recherches, améliorer les performances et faciliter le traitement des informations. La notation Big O, quant à elle, permet d'évaluer et de comparer l'efficacité des algorithmes en termes de temps d'exécution et d'utilisation de la mémoire.
 
-[![Status](https://img.shields.io/badge/status-active-success.svg)]() [![GitHub Issues](https://img.shields.io/github/issues/SaraEstelle/holbertonschool-sorting_algorithms.svg)](https://github.com/SaraEstelle/holbertonschool-sorting_algorithms/issues) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/SaraEstelle/holbertonschool-sorting_algorithms.svg)](https://github.com/SaraEstelle/holbertonschool-sorting_algorithms/pulls) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
-
-</div>
+Ce projet est réalisé en binôme dans le cadre du programme Holberton School et vise à développer une compréhension pratique de plusieurs algorithmes de tri classiques, de leur complexité temporelle et de leurs cas d'utilisation optimaux.
 
 ---
 
-<p align="left">
-Implementation of various sorting algorithms in C and analysis of their time complexity (Big O notation).
-</p>
+## Objectifs d'apprentissage
 
-## 📝 Table of Contents
+À la fin de ce projet, vous serez capable d'expliquer sans aide extérieure :
 
-- [About](#about)
-- [Project Description](#project_description)
-- [Data Structures](#data_structures)
-- [File Structure](#file_structure)
-- [Getting Started](#getting_started)
-- [Compilation](#compilation)
-- [Running the tests](#tests)
-- [Complexity Summary](#complexity)
-- [Built Using](#built_using)
-- [Authors](#authors)
-- [Acknowledgments](#acknowledgement)
+- **Au moins quatre algorithmes de tri différents** et leur fonctionnement
+- **La notation Big O** et comment évaluer la complexité temporelle d'un algorithme
+- **Comment sélectionner le meilleur algorithme de tri** selon le type de données d'entrée
+- **Ce qu'est un algorithme de tri stable** et pourquoi cette propriété est importante
 
-## 🧐 About <a name = "about"></a>
+---
 
-This project focuses on the implementation and efficiency analysis of common sorting algorithms. The main objective is to understand how data can be organized and how performance is measured using **Big O notation**. This project demonstrates a solid grasp of:
+## Ressources
 
-- Array manipulation
-- Doubly linked list manipulation
-- Complexity analysis (Best, Average, and Worst cases)
-- Recursive vs Iterative implementations
+### Lectures et vidéos recommandées :
+- [Sorting algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm) - Article Wikipédia sur les algorithmes de tri
+- [Big O notation](https://en.wikipedia.org/wiki/Big_O_notation) - Comprendre la notation Big O
+- [Sorting algorithms animations](https://www.toptal.com/developers/sorting-algorithms) - Visualisations interactives
+- [15 sorting algorithms in 6 minutes](https://www.youtube.com/watch?v=kPRA0W1kECg) - Visualisation rapide (⚠️ peut déclencher des crises d'épilepsie)
 
-## 📖 Project Description <a name = "project_description"></a>
+---
 
-The `sorting_algorithms` project requires creating multiple C functions that sort data sets (arrays and lists) using different logic, such as Bubble, Insertion, Selection, and Quick sort.
+## Structure du projet
 
-### Project Objectives:
+### Structure de données
 
-- Implement sorting functions for integers.
-- Analyze time complexity for each algorithm.
-- Print the data set after each swap for visualization.
-- Follow Holbertonschool coding standards (**Betty style**).
+Pour ce projet, nous utilisons deux structures principales :
 
-## 🌳 Data Structures <a name = "data_structures"></a>
+#### 1. Tableaux d'entiers
+```c
+int array[] = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};
+```
 
-For the list-based sorting tasks, we use the following doubly linked list structure:
-
+#### 2. Liste doublement chaînée
 ```c
 /**
  * struct listint_s - Doubly linked list node
@@ -68,39 +55,278 @@ typedef struct listint_s
     struct listint_s *prev;
     struct listint_s *next;
 } listint_t;
+```
 
-📁 File Structure <a name = "file_structure"></a>Plaintextholbertonschool-sorting_algorithms/
-├── tests/              # Folder containing main.c test files
-│   ├── 0-main.c
-│   ├── 1-main.c
-│   └── ...
-├── sort.h              # Header file containing prototypes and structures
-├── print_array.c       # Helper function provided to print arrays
-├── print_list.c        # Helper function provided to print lists
-├── 0-bubble_sort.c     # Task 0: Bubble sort implementation
-├── 0-O                 # Task 0: Time complexities
-├── 1-insertion_sort_list.c
-├── 1-O
-├── 2-selection_sort.c
-├── 2-O
-├── 3-quick_sort.c
-├── 3-O
-└── README.md
+### Fichiers d'en-tête
 
-🏁 Getting Started <a name = "getting_started"></a>Prerequisitesgcc (GNU Compiler Collection)
-git - Version control system
-InstallingBashgit clone [https://github.com/SaraEstelle/holbertonschool-sorting_algorithms.git](https://github.com/SaraEstelle/holbertonschool-sorting_algorithms.git)
-cd holbertonschool-sorting_algorithms
+Tous les prototypes de fonctions doivent être inclus dans **`sort.h`**, qui doit être protégé contre les inclusions multiples.
 
-🔨 Compilation <a name = "compilation"></a>Compile the source files with the provided flags to ensure strict Betty compliance:Bashgcc -Wall -Wextra -Werror -pedantic -std=gnu89 print_array.c tests/<MAIN_FILE>.c <TASK_FILE>.c -o sort_test
+---
 
-🔧 Running the tests <a name = "tests"></a>To test an implementation (e.g., Quick sort):Compile:Bashgcc -Wall -Wextra -Werror -pedantic -std=gnu89 print_array.c tests/3-main.c 3-quick_sort.c -o quick
-Execute:Bash./quick
+## Algorithmes implémentés
 
-🎯 Complexity Summary <a name = "complexity"></a>AlgorithmBest CaseAverage CaseWorst CaseBubble Sort$O(n)$$O(n^2)$$O(n^2)$Insertion Sort$O(n)$$O(n^2)$$O(n^2)$Selection Sort$O(n^2)$$O(n^2)$$O(n^2)$Quick Sort$O(n \log n)$$O(n \log n)$$O(n^2)$⛏️ Built Using <a name = "built_using"></a>C - Logic and core implementationGCC - CompilationGit - Version controlUbuntu 20.04 - OS environment
+### 0. Bubble Sort (Tri à bulles)
 
-✍️ Authors <a name = "authors"></a>Sara Rebati - @SaraEstelle
-Maxim Dutruel - @maxim880000
+**Fichiers :** `0-bubble_sort.c`, `0-O`
 
-🎉 Acknowledgements <a name = "acknowledgement"></a>Holberton School mentors for guidance on algorithmic efficiency.Inspiration from the standard C library sorting functions.Last Updated: December 2025Status: Active
+**Prototype :** `void bubble_sort(int *array, size_t size);`
 
+**Description :**
+Le tri à bulles compare des paires d'éléments adjacents et les échange s'ils sont dans le mauvais ordre. Ce processus est répété jusqu'à ce que le tableau soit trié.
+
+**Complexité temporelle :**
+- **Meilleur cas :** O(n) - lorsque le tableau est déjà trié
+- **Cas moyen :** O(n²)
+- **Pire cas :** O(n²)
+
+**Principe :**
+- Parcourir le tableau en comparant chaque paire d'éléments adjacents
+- Échanger les éléments si nécessaire
+- Afficher le tableau après chaque échange
+- Répéter jusqu'à ce qu'aucun échange ne soit nécessaire
+
+---
+
+### 1. Insertion Sort (Tri par insertion)
+
+**Fichiers :** `1-insertion_sort_list.c`, `1-O`
+
+**Prototype :** `void insertion_sort_list(listint_t **list);`
+
+**Description :**
+Le tri par insertion construit progressivement un tableau trié en insérant chaque élément à sa position correcte dans la partie déjà triée.
+
+**Complexité temporelle :**
+- **Meilleur cas :** O(n) - lorsque la liste est déjà triée
+- **Cas moyen :** O(n²)
+- **Pire cas :** O(n²)
+
+**Principe :**
+- Commencer avec le deuxième élément
+- Comparer avec les éléments précédents
+- Insérer l'élément à sa position correcte
+- Répéter pour tous les éléments
+- **Important :** Échanger les nœuds eux-mêmes, pas leurs valeurs
+
+---
+
+### 2. Selection Sort (Tri par sélection)
+
+**Fichiers :** `2-selection_sort.c`, `2-O`
+
+**Prototype :** `void selection_sort(int *array, size_t size);`
+
+**Description :**
+Le tri par sélection trouve le plus petit élément dans la partie non triée et l'échange avec le premier élément non trié.
+
+**Complexité temporelle :**
+- **Meilleur cas :** O(n²)
+- **Cas moyen :** O(n²)
+- **Pire cas :** O(n²)
+
+**Principe :**
+- Trouver le minimum dans la partie non triée
+- L'échanger avec le premier élément non trié
+- Afficher le tableau après chaque échange
+- Répéter jusqu'à ce que tout soit trié
+
+---
+
+### 3. Quick Sort (Tri rapide)
+
+**Fichiers :** `3-quick_sort.c`, `3-O`
+
+**Prototype :** `void quick_sort(int *array, size_t size);`
+
+**Description :**
+Le tri rapide utilise une approche "diviser pour régner". Il sélectionne un pivot et partitionne le tableau de sorte que les éléments plus petits que le pivot soient à gauche et les plus grands à droite.
+
+**Implémentation :** Schéma de partition de Lomuto avec le dernier élément comme pivot.
+
+**Complexité temporelle :**
+- **Meilleur cas :** O(n log n)
+- **Cas moyen :** O(n log n)
+- **Pire cas :** O(n²) - lorsque le pivot est toujours le plus petit ou le plus grand élément
+
+**Principe :**
+- Choisir le dernier élément comme pivot
+- Partitionner le tableau autour du pivot
+- Appliquer récursivement sur les sous-tableaux
+- Afficher après chaque échange
+
+---
+
+## Notation Big O
+
+La notation Big O décrit la limite supérieure du temps d'exécution d'un algorithme en fonction de la taille de l'entrée.
+
+### Notations courantes (du plus rapide au plus lent) :
+
+- **O(1)** - Temps constant
+- **O(log n)** - Temps logarithmique
+- **O(n)** - Temps linéaire
+- **O(n log n)** - Temps linéarithmique
+- **O(n²)** - Temps quadratique
+- **O(n³)** - Temps cubique
+- **O(2ⁿ)** - Temps exponentiel
+- **O(n!)** - Temps factoriel
+
+### Format des fichiers O :
+Chaque fichier `X-O` contient trois lignes représentant :
+1. Complexité dans le meilleur cas
+2. Complexité dans le cas moyen
+3. Complexité dans le pire cas
+
+**Exemple pour Bubble Sort (`0-O`) :**
+```
+O(n)
+O(n^2)
+O(n^2)
+```
+
+---
+
+## Exigences du projet
+
+### Générales
+- **Éditeurs autorisés :** vi, vim, emacs
+- **Compilation :** Ubuntu 20.04 LTS avec gcc et les options : `-Wall -Werror -Wextra -pedantic -std=gnu89`
+- **Style de code :** Betty (vérifié avec `betty-style.pl` et `betty-doc.pl`)
+- **Fichiers :** Tous les fichiers doivent se terminer par une nouvelle ligne
+- **Fonctions :** Maximum 5 fonctions par fichier
+- **Variables globales :** Interdites
+- **Bibliothèque standard :** Non autorisée (sauf exception indiquée)
+
+### Fichier README.md
+Un fichier README.md à la racine du projet est **obligatoire**.
+
+### Fichier d'en-tête
+- Nom : `sort.h`
+- Doit contenir tous les prototypes de fonctions
+- Doit être protégé contre les inclusions multiples
+
+### GitHub
+Un seul dépôt par groupe. Les deux membres du binôme doivent contribuer.
+
+---
+
+## Fonctions utilitaires fournies
+
+### print_array
+Affiche un tableau d'entiers :
+```c
+void print_array(const int *array, size_t size);
+```
+
+### print_list
+Affiche une liste doublement chaînée :
+```c
+void print_list(const listint_t *list);
+```
+
+Ces fonctions sont fournies dans `print_array.c` et `print_list.c` et seront compilées avec vos fonctions lors de la correction.
+
+---
+
+## Compilation et tests
+
+### Exemples de compilation :
+
+**Bubble Sort :**
+```bash
+gcc -Wall -Wextra -Werror -pedantic 0-bubble_sort.c 0-main.c print_array.c -o bubble
+./bubble
+```
+
+**Insertion Sort :**
+```bash
+gcc -Wall -Wextra -Werror -pedantic 1-main.c 1-insertion_sort_list.c print_list.c -o insertion
+./insertion
+```
+
+**Selection Sort :**
+```bash
+gcc -Wall -Wextra -Werror -pedantic 2-main.c 2-selection_sort.c print_array.c -o select
+./select
+```
+
+**Quick Sort :**
+```bash
+gcc -Wall -Wextra -Werror -pedantic -std=gnu89 3-main.c 3-quick_sort.c print_array.c -o quick
+./quick
+```
+
+---
+
+## Conseils pratiques
+
+1. **Tester avec de grands ensembles de données :** Utilisez [Random.org](https://www.random.org/) pour générer des tableaux de nombres aléatoires.
+
+2. **Comprendre avant de coder :** Visualisez l'algorithme avec des exemples simples avant de l'implémenter.
+
+3. **Déboguer efficacement :** Utilisez la fonction `print_array` ou `print_list` à différentes étapes pour suivre l'exécution.
+
+4. **Travailler en binôme :** Pratiquez le pair programming pour au moins la partie obligatoire.
+
+5. **Analyser la complexité :** Pour chaque algorithme, identifiez :
+   - Le meilleur cas (données déjà triées ou presque)
+   - Le cas moyen (données aléatoires)
+   - Le pire cas (données en ordre inverse)
+
+---
+
+## Résumé
+
+Ce projet vous a permis de découvrir et d'implémenter quatre algorithmes de tri fondamentaux :
+
+### 📊 Comparaison rapide :
+
+| Algorithme | Meilleur cas | Cas moyen | Pire cas | Stabilité | Cas d'usage |
+|------------|--------------|-----------|----------|-----------|-------------|
+| **Bubble Sort** | O(n) | O(n²) | O(n²) | Stable | Petits tableaux, données presque triées |
+| **Insertion Sort** | O(n) | O(n²) | O(n²) | Stable | Petites listes, tri en ligne |
+| **Selection Sort** | O(n²) | O(n²) | O(n²) | Instable | Simplicité, peu d'écritures en mémoire |
+| **Quick Sort** | O(n log n) | O(n log n) | O(n²) | Instable | Grandes données, tri général performant |
+
+### 🎯 Points clés à retenir :
+
+1. **Notation Big O** : Permet d'évaluer et de comparer l'efficacité des algorithmes
+2. **Choix de l'algorithme** : Dépend de la taille des données, de leur état initial et des contraintes mémoire
+3. **Stabilité** : Un tri stable préserve l'ordre relatif des éléments égaux
+4. **Trade-offs** : Simplicité vs performance, mémoire vs temps d'exécution
+
+### 💡 Compétences acquises :
+
+- Implémentation d'algorithmes classiques en C
+- Analyse de complexité temporelle
+- Manipulation de structures de données (tableaux et listes chaînées)
+- Travail collaboratif en binôme
+- Respect des normes de codage (Betty style)
+
+---
+
+## Équipe
+
+**Binôme :**
+- Sara Rebati
+- Maxim Dutruel
+
+**Instructeur :** Alexandre Gautier
+
+---
+
+## Repository
+
+**GitHub repository:** `holbertonschool-sorting_algorithms`
+
+**Fichiers du projet :**
+- `0-bubble_sort.c`, `0-O`
+- `1-insertion_sort_list.c`, `1-O`
+- `2-selection_sort.c`, `2-O`
+- `3-quick_sort.c`, `3-O`
+- `sort.h`
+- `README.md`
+
+---
+
+*Projet réalisé dans le cadre du cursus Holberton School*
